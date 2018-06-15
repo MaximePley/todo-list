@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <body class="text-center">
+  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <form action='' method='post'>
+    {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}
+            {% for error in form.username.errors %}
+            <li style="color: red;list-style-type: none;">[{{ error }}]</li>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p>{{ form.submit() }}</p>
+        <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
+        <p>
+        Forgot Your Password?
+        <a href="{{ url_for('reset_password_request') }}">Click to Reset It</a>
+        </p>
+        <p class="mt-5 mb-3 text-muted">© 2018-2019</p>
+    </form>
+</body>
+
+{% endblock %}

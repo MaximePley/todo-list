@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <body class="text-center">
+        <h1>Create a new project</h1>
+
+        <form action="" role="form" method="POST">
+            {{form.hidden_tag()}}
+            <p>
+                <h4>Name of the new project</h4>
+                {{form.title(cols=45)}}
+                {% for error in form.errors.label %}
+                <span style="color: red;list-style-type: none;">{{ error }}</span>
+                {% endfor %}
+            </p>
+            <p>
+                <h7>Description of the project</h7>
+            </p>
+            <p>
+                {{ form.description(cols=45, rows=3) }}<br>
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+
+    <!-- <div>Please note that once the project in setup, sub-tasks can be created</div> -->
+    </body>
+{% endblock %}
+

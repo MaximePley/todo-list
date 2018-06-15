@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="text-center">
+    <h1>{{ project.title }} edition</h1>
+
+    <form action="" role="form" method="POST">
+    {{form.hidden_tag()}}
+        <p><h3>Enter your tasks</h3>
+        {{form.label(cols=45)}}
+        {% for error in form.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+        {{ form.submit() }}</p>
+    </form>
+
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class = "panel panel-default">
+        <div class="panel-heading text-center">
+            <u>Description: </u>
+            <p>{{project.description}}</p>
+        </div>
+        <div class = "panel-body ">
+        {% for t in task%}
+          <li>{{t.body}}</li>
+        {% endfor %}
+        </div>
+        <div class = "panel-footer text-center">
+          <a href="{{ url_for('index') }}"> Back to projects list</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+  <div class="text-center">
+    <h2><b>Click on the project you want to delete</b></h2>
+
+    <form action="" role="form" method="POST">
+    {{form.hidden_tag()}}
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class = "panel panel-default">
+          <div class="panel-body text-center">
+          {% for p in projects %}
+          <li><a href=/confirm_deletion/{{p.id}}>{{p.title}}</a></li>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{ form.submit() }}
+    </form>
+  </div>
+<body>
+{% endblock %}

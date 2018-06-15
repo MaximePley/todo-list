@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <body>
+      <div class="text-center">
+        <h2>Hello, {{ current_user.username }}!</h2>
+        <h9>{% if current_user.last_seen %}<p>Last seen on: {{ current_user.last_seen }}</p>{% endif %}</h9>
+      </div>
+
+    <form action="" role="form" method="POST">
+    {{form.hidden_tag()}}
+    <div class="row">
+        {% for key, values in tasks.items() %}
+        <div class="col-md-4 col-sm-4 col-xs-4">
+          <div class = "panel panel-default">
+            <div class="panel-heading text-center">
+                <h4><b>{{key}}</b></h4>
+                <a href="/project/{{key}}" style="font-size:12px">Add tasks</a>
+            </div>
+
+
+                {% for k,v in values.items() %}
+
+                <div class = "panel-body ">
+                  <div class="checkbox">
+                    <li id='index'> <input type="checkbox" name={{k}} value={{k}} {{v}}/>
+                       <label class="strikethrough">{{k}}</label> </li>
+                  </div>
+                </div>
+
+                {% endfor %}
+
+            <div class = "panel-footer text-center">
+                Last update: Time
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+  </form>
+{% endblock %}
+
+
+

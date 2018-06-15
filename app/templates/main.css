@@ -1,0 +1,51 @@
+.darkBG{
+	background: #999;
+}
+.darkerBG{
+	background: #666;
+}
+.darkestBG{
+	background: #333;
+}
+.MyPanel{ 
+    margin: 20px;
+}
+.MyPanel .panel-body{
+	color: white;
+	border: 1px solid #6870D6D;
+    border-color: red;
+    border-width: 2px;
+    box-shadow: 0px 0px 4px #999;
+    background: #999;
+}
+.MyPanel .showOnHover{
+	background: white;
+	display: none;
+}
+/* button to desapear when mouse on panel */
+.MyPanel:hover{
+	box-shadow: 0px 0px 8px black;
+	border-color: 2px;
+	margin:2%;
+}
+.MyPanel:hover .showOnHover{
+	background: white;
+	display: inline-block;
+}
+footer{
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+.footer {
+    margin: auto;
+    text-align:center;
+    padding:10px;
+    color: black;
+}
+img{
+	width: 60%;
+	height: 60%;
+	position: center;
+}
